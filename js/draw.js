@@ -15,7 +15,6 @@ function l1(a, b, c) {
     ctx.closePath();
   }
 }
-
 function l2(a, b, c) {
   ctx.beginPath();
   ctx.rect(a * size, b * size, size * 2, size);

@@ -35,167 +35,216 @@
     <script src="./js/draw.js"></script>
     <script src="./js/run.js"></script>
     <script src="./js/check.js"></script>
-
+    <script src="./js/key.js"></script>
     <script text="text/javascript">
       document.addEventListener("keydown", function (event) {
-        console.log(event.keyCode);
         switch (event.keyCode) {
+          ///////////////////////////////////   37     ///////////////////////
           case 37:
-            if (bx > 0 && check(bx - 1)) {
+            if (check(bx - 1, Math.ceil(by))) {
               switch (box) {
                 case 1:
-                  if (checkDot(bx + 1, by) == false) return 0;
-                  break;
-                case 2:
-                  if (checkDot(bx - 1, by) == false) return 0;
-                  break;
-                case 4:
-                  if (checkDot(bx, by) == false) return 0;
-                  break;
-                case 5:
-                  if (checkDot(bx, by) == false) return 0;
-                  break;
-                case 7:
-                  if (checkDot(bx - 1, by) == false) return 0;
+                  if (color[4 + Math.ceil(by)][bx + 1] != gr) return 0;
                   break;
                 case 31:
-                  if (checkDot(bx - 1, by) == false) return 0;
+                  if (color[4 + Math.ceil(by)][bx - 1] != gr) return 0;
                   break;
                 case 41:
                   if (
-                    checkDot(bx - 1, by) == false ||
-                    checkDot(bx - 1, by + 1) == false
+                    color[4 + Math.ceil(by)][bx - 1] != gr ||
+                    color[4 + Math.ceil(by) + 1][bx - 1] != gr
                   )
                     return 0;
                   break;
+                case 2:
+                  if (color[4 + Math.ceil(by)][bx - 1] != gr) return 0;
+                  break;
                 case 22:
                   if (
-                    checkDot(bx, by) == false ||
-                    checkDot(bx, by + 1) == false
+                    color[4 + Math.ceil(by)][bx] != gr ||
+                    color[4 + Math.ceil(by) + 1][bx] != gr
                   )
                     return 0;
                   break;
                 case 42:
                   if (
-                    checkDot(bx - 1, by) == false ||
-                    checkDot(bx - 1, by + 1) == false
+                    color[4 + Math.ceil(by)][bx - 1] != gr ||
+                    color[4 + Math.ceil(by) + 1][bx - 1] != gr
                   )
                     return 0;
                   break;
                 case 23:
                   if (
-                    checkDot(bx, by) == false ||
-                    checkDot(bx - 1, by + 1) == false
+                    color[4 + Math.ceil(by)][bx] != gr ||
+                    color[4 + Math.ceil(by) + 1][bx - 1] != gr
                   )
                     return 0;
                   break;
+                case 4:
+                  if (color[4 + Math.ceil(by)][bx] != gr) return 0;
+                  break;
                 case 24:
-                  if (checkDot(bx - 1, by) == false) return 0;
+                  if (color[4 + Math.ceil(by)][bx - 1] != gr) return 0;
+                  break;
+                case 5:
+                  if (color[4 + Math.ceil(by)][bx] != gr) return 0;
                   break;
                 case 25:
-                  if (checkDot(bx, by) == false) return 0;
+                  if (color[4 + Math.ceil(by)][bx] != gr) return 0;
                   break;
                 case 45:
                   if (
-                    checkDot(bx - 1, by) == false ||
-                    checkDot(bx - 1, by + 1) == false
+                    color[4 + Math.ceil(by)][bx - 1] != gr ||
+                    color[4 + Math.ceil(by) + 1][bx - 1] != gr
                   )
                     return 0;
                   break;
                 case 26:
                   if (
-                    checkDot(bx - 1, by) == false ||
-                    checkDot(bx - 1, by + 1) == false ||
-                    checkDot(bx - 1, by + 2) == false
+                    color[4 + Math.ceil(by)][bx - 1] != gr ||
+                    color[4 + Math.ceil(by) + 1][bx - 1] != gr ||
+                    color[4 + Math.ceil(by) + 2][bx - 1] != gr
                   )
                     return 0;
                   break;
+                case 7:
+                  if (color[4 + Math.ceil(by)][bx - 1] != gr) return 0;
+                  break;
               }
-              bx--;
-
-              if (check(bx)) {
-                ctx.clearRect(0, 0, 400, 800); /// xoá
-                setcolor(); // khôi phục màu sắc đáy
-                draw();
-              }
-            } else return 0;
+              left = true;
+            } else left = false;
             break;
+          ///////////////////////////////////   39    /////////////////////
           case 39:
-            if (bx < 10 - a && check(bx + 1)) {
+            if (check(bx + 1, Math.ceil(by))) {
               switch (box) {
                 case 1:
-                  if (checkDot(bx + 3, by) == false) return 0;
-                  break;
-                case 2:
-                  if (checkDot(bx + 1, by) == false) return 0;
-                  break;
-                case 3:
-                  if (checkDot(bx + 2, by) == false) return 0;
-                  break;
-                case 5:
-                  if (checkDot(bx + 2, by) == false) return 0;
-                  break;
-                case 7:
-                  if (checkDot(bx + 2, by) == false) return 0;
+                  if (color[4 + Math.ceil(by)][bx + 3] != gr) return 0;
                   break;
                 case 21:
                   if (
-                    checkDot(bx + 2, by) == false ||
-                    checkDot(bx + 2, by + 1) == false
+                    color[4 + Math.ceil(by)][bx + 2] != gr ||
+                    color[4 + Math.ceil(by) + 1][bx + 2] != gr
                   )
                     return 0;
                   break;
                 case 41:
                   if (
-                    checkDot(bx + 1, by) == false ||
-                    checkDot(bx + 1, by + 1) == false
+                    color[4 + Math.ceil(by)][bx + 1] != gr ||
+                    color[4 + Math.ceil(by) + 1][bx + 1] != gr
                   )
                     return 0;
+                case 2:
+                  if (color[4 + Math.ceil(by)][bx + 1] != gr) return 0;
                   break;
                 case 22:
                   if (
-                    checkDot(bx + 2, by) == false ||
-                    checkDot(bx + 2, by + 1) == false
+                    color[4 + Math.ceil(by)][bx + 2] != gr ||
+                    color[4 + Math.ceil(by) + 1][bx + 2] != gr
                   )
                     return 0;
                   break;
                 case 32:
-                  if (checkDot(bx + 3, by) == false) return 0;
+                  if (color[4 + Math.ceil(by)][bx + 3] != gr) return 0;
+                  break;
+                case 3:
+                  if (color[4 + Math.ceil(by)][bx + 2] != gr) return 0;
                   break;
                 case 23:
-                  if (checkDot(bx + 2, by) == false) return 0;
+                  if (color[4 + Math.ceil(by)][bx + 2] != gr) return 0;
                   break;
                 case 24:
-                  if (checkDot(bx + 1, by) == false) return 0;
+                  if (color[4 + Math.ceil(by)][bx + 1] != gr) return 0;
+                  break;
+                case 5:
+                  if (color[4 + Math.ceil(by)][bx + 2] != gr) return 0;
                   break;
                 case 25:
                   if (
-                    checkDot(bx + 2, by) == false ||
-                    checkDot(bx + 2, by + 1) == false
+                    color[4 + Math.ceil(by)][bx + 2] != gr ||
+                    color[4 + Math.ceil(by) + 1][bx + 2] != gr
                   )
                     return 0;
                   break;
                 case 45:
-                  if (checkDot(bx + 1, by) == false) return 0;
+                  if (color[4 + Math.ceil(by)][bx + 1] != gr) return 0;
+                  break;
+                case 6:
+                  if (color[4 + Math.ceil(by)][bx + 4] != gr) return 0;
                   break;
                 case 26:
                   if (
-                    checkDot(bx + 1, by) == false ||
-                    checkDot(bx + 1, by + 1) == false ||
-                    checkDot(bx + 1, by + 2) == false
+                    color[4 + Math.ceil(by)][bx + 1] != gr ||
+                    color[4 + Math.ceil(by) + 1][bx + 1] != gr ||
+                    color[4 + Math.ceil(by) + 2][bx + 1] != gr
                   )
                     return 0;
                   break;
+                case 7:
+                  if (color[4 + Math.ceil(by)][bx + 2] != gr) return 0;
+                  break;
               }
-              bx += 1;
-              if (check(bx)) {
-                ctx.clearRect(0, 0, 400, 800); /// xoá
-                setcolor(); // khôi phục màu sắc đáy
-                draw();
-              }
-            } else return 0;
+              right = true;
+            } else right = false;
             break;
+          ////////////////////////////////// 38 //////////////////////////
           case 38:
+            switch (box) {
+              case 1:
+                box_up = 21;
+                break;
+              case 21:
+                box_up = 31;
+                break;
+              case 31:
+                box_up = 41;
+                break;
+              case 41:
+                box_up = 1;
+                break;
+              case 2:
+                box_up = 22;
+                break;
+              case 22:
+                box_up = 32;
+                break;
+              case 32:
+                box_up = 42;
+                break;
+              case 42:
+                box_up = 2;
+                break;
+              case 3:
+                box_up = 23;
+                break;
+              case 23:
+                box_up = 3;
+                break;
+              case 4:
+                box_up = 24;
+                break;
+              case 24:
+                box_up = 4;
+                break;
+              case 5:
+                box_up = 25;
+                break;
+              case 25:
+                box_up = 35;
+                break;
+              case 35:
+                box_up = 45;
+                break;
+              case 45:
+                box_up = 5;
+                break;
+              case 6:
+                box_up = 26;
+                break;
+              case 26:
+                box_up = 6;
+                break;
+            }
           case 40:
         }
       });

@@ -5,7 +5,6 @@ function random() {
     next = next2;
   } else {
     next1 = Math.floor(Math.random() * 7) + 1;
-    next = next1;
   }
   switch (next) {
     case 1:
